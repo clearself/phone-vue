@@ -1,0 +1,12 @@
+
+.swiper-container{
+    padding-top:190px!important;
+    box-sizing: border-box!important;
+}
+.swiper-inner{
+    width:880px!important;
+}
+.swiper-inner>.inner-box{
+    width:100px!important;
+    margin: 0 60px 80px!important;
+}
