@@ -22,7 +22,8 @@ import {
 	formatJSON,
 	accMul,
     curBrowser,
-    uuid
+    uuid,
+    isMobile
 } from './public_fun.js'
 export default {
 	version: '0.0.1',
@@ -41,8 +42,9 @@ export default {
 		Vue.prototype.$uuid = uuid;
 		Vue.prototype.$accMul = accMul;
         Vue.prototype.$curBrowser = curBrowser;
+        Vue.prototype.$isMobile = isMobile;
 
-
+        
 		Vue.prototype.$hasClass = hasClass;
 		Vue.prototype.$addClass = addClass;
 		Vue.prototype.$removeClass = removeClass;

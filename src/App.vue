@@ -10,6 +10,12 @@ export default {
     data() {
         return {}
     },
+    created() {
+        if (!this.$isMobile()) {
+            document.body.style.maxWidth = '750px'
+            document.body.style.margin = '0 auto'
+        }
+    },
     methods: {
     }
 }

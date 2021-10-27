@@ -4,36 +4,8 @@
             车生活是上海市
         </div>
 
-        <van-button type="primary" text="显示遮罩层" @click="show = true" />
-        <!-- <van-area title="标题" :area-list="areaList" :columns-placeholder="['请选择', '请选择', '请选择']" /> -->
-        <!-- <van-overlay :show="show" @click="show = false">
-            <div class="wrapper" @click.stop>
-                <div class="block">
-                    <ul>
-                        <li>dvffddnggggf</li>
-                        <li>vbsdbsbsbssbbs</li>
-                        <li>dvffddnggggf</li>
-                        <li>vbsdbsbsbssbbs</li>
-                        <li>dvffddnggggf</li>
-                        <li>vbsdbsbsbssbbs</li>
-                        <li>dvffddnggggf</li>
-                        <li>vbsdbsbsbssbbs</li>
-                        <li>dvffddnggggf</li>
-                        <li>vbsdbsbsbssbbs</li>
-                        <li>dvffddnggggf</li>
-                        <li>vbsdbsbsbssbbs</li>
-                        <li>dvffddnggggf</li>
-                        <li>vbsdbsbsbssbbs</li>
-                        <li>dvffddnggggf</li>
-                        <li>vbsdbsbsbssbbs</li>
-                        <li>dvffddnggggf</li>
-                        <li>vbsdbsbsbssbbs</li>
-                        <li>dvffddnggggf</li>
-                        <li>vbsdbsbsbssbbs</li>
-                    </ul>
-                </div>
-            </div>
-        </van-overlay>
+        <van-button type="warning" text="显示遮罩层" @click="show = true" />
+        <van-area title="标题" :area-list="areaList" :columns-placeholder="['请选择', '请选择', '请选择']" />
         <van-list
             v-model="loading"
             :finished="finished"
@@ -41,24 +13,36 @@
             @load="onLoad"
         >
             <van-cell v-for="item in list" :key="item" :title="item" />
-        </van-list> -->
+        </van-list>
+        <van-overlay class-name="is-pc" :show="show" @click="show = false">
+            <div class="wrapper" @click.stop>
+                <div class="block" />
+            </div>
+        </van-overlay>
     </div>
 </template>
 
 <script>
-// import {
-//     areaList
-// } from '@vant/area-data'
+import {
+    areaList
+} from '@vant/area-data'
+import Vue from 'vue'
+import { Button, Area, List, Cell, Toast, Popup, Overlay } from 'vant'
+
+Vue.use(Button).use(Area).use(List).use(Cell).use(Toast).use(Popup).use(Overlay)
 export default {
     name: 'Home',
     data() {
         return {
-            // areaList,
+            areaList,
             show: false,
             list: [],
             loading: false,
             finished: false
         }
+    },
+    mounted() {
+        // Toast('提示内容')
     },
     methods: {
         onLoad() {
@@ -83,8 +67,9 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import './style.scss';
+
 .box{
-    width:750px;
+    width:100%;
     height:75px;
     background-color: red;
     font-size:16px;

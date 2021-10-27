@@ -134,7 +134,7 @@ module.exports = {
     productionSourceMap: false,
     outputDir: 'dist',
     devServer: {
-        host: 'localhost',
+        host: '10.18.3.88',
         port: 3001,
         https: false,
         hotOnly: false,

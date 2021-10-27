@@ -1,16 +1,18 @@
 
 import 'core-js/stable'
 import 'regenerator-runtime/runtime'
+// import './assets/js/flexible.js'
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router/index.js'
 import VueCookies from 'vue-cookies'
-import Vant from 'vant'
+import '@vant/touch-emulator'
+// import Vant from 'vant'
 // rem h5 适配
-import 'amfe-flexible'
 
-import 'vant/lib/index.css'
-import './icon/iconfont.css'
+import './assets/css/base.css'
+// import 'vant/lib/index.css'
+// import './icon/iconfont.css'
 import store from './store/index.js'
 import Debounce from './assets/js/utils.js'
 // 自定义组件库
@@ -25,7 +27,7 @@ import VueClipBoard from 'vue-clipboard2'
 import directives from './assets/js/directives.js'
 // 路由切换加载进度条
 import LoadingBar from './components/loading-bar/index.js'
-Vue.use(Vant)
+// Vue.use(Vant)
 Vue.use(VueCookies)
 Vue.component('Debounce', Debounce)
 Vue.use(FLYmodules)

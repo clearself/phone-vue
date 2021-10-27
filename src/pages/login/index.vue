@@ -1,6 +1,6 @@
 <template>
     <div class="wrapper">
-        <van-button type="primary">默认按钮</van-button>
+        <van-button type="warning">默认按钮</van-button>
         <van-search value="1231" placeholder="请输入搜索关键词"/>
         <div class="box"></div>
     </div>

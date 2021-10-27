@@ -1,3 +1,83 @@
+@charset "utf-8";
+* {
+    box-sizing: border-box;
+     -webkit-tap-highlight-color: rgba(0,0,0,0);
+     margin: 0;
+     padding: 0;
+}
+ /* 禁用iPhone中字号调整 */ 
+html {
+    -webkit-text-size-adjust: 100%;
+/* 解决IOS默认滑动很卡的情况  */ 
+    -webkit-overflow-scrolling : touch;      
+    /* max-width:750PX; */
+    width:100%;
+    height: 100%;
+}
+ 
+/* 禁止缩放表单 */
+input[type="submit"], input[type="reset"], input[type="button"], input {
+    resize: none;
+    border: none;
+}
+/* 加载不出来的图片不要显示灰色边框 */
+img:not([src]),img[src=""] {opacity: 0;}
+/* 移动端点击a链接出现蓝色背景问题解决 */
+a:link,a:active,a:visited,a:hover {
+    background: none;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* 设置HTML5元素为块 */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+body {
+    width:100%;
+    height: 100%;
+    overflow-x: hidden;
+    position: relative;
+    font: 12px/1.5 'Microsoft YaHei','宋体', Tahoma, Arial, sans-serif;
+    color: #555;
+    background-color: #F7F7F7;
+}
+ul,ol,li {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+    color: #969696;
+    font-family: 'Microsoft YaHei', Tahoma, Arial, sans-serif;
+}
+a:hover {
+    text-decoration: none;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+    font-family: 'Microsoft YaHei';
+}
+img {
+    border: none;
+}
+input {
+    font-family: 'Microsoft YaHei';
+}
+.fl {
+    float: left;
+}
+.fr {
+    float: right;
+}
+.clearfix:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.clearfix {
+    zoom: 1;
+}
 .ub {
 	display: flex;
 	position: relative;
@@ -6,7 +86,6 @@
 .ub-rev {
 	box-direction: reverse;
 }
-	
 
 .ub-con {
 	position: absolute;
@@ -56,4 +135,14 @@
 .ub-f4 {
 	position: relative;
 	flex: 4;
+}
+
+
+.van-overlay.is-pc{
+    top: 50%;
+   left: 50%;
+   z-index: 1;
+   width: 100%;
+   max-width:750PX;
+   transform: translate(-50%, -50%);
 }

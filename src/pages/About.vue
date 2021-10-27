@@ -11,16 +11,6 @@
                 <li v-for="(item,index) in 50" :key="index">这是第{{item}}条背景数据</li>
             </ul>
         </div>
-
-        <!-- 弹框1 -->
-        <!-- <div class="modalBox" v-if="modalSign1" @touchmove.prevent @click.self="modalSign1 = false">
-            <div class="modal">
-                <ul>
-                    <li v-for="(item,index) in 8" :key="index">这是第{{item}}条数据</li>
-                </ul>
-            </div>
-        </div> -->
-        <!-- 弹框2 -->
         <ModalBox :visible.sync="modalSign2">
             <div slot="modal" class="modal">
                 <van-button type="danger" size="small" text="关闭" @click="modalSign2 = false" />
@@ -52,18 +42,15 @@
                 </ul>
             </div>
         </ModalBox>
-        <!-- <div class="modalBox" v-if="modalSign2" @click.self="closeModal">
-            <div class="modal">
-                <ul>
-                    <li v-for="(item,index) in 20" :key="index">这是第{{item}}条数据</li>
-                </ul>
-            </div>
-        </div> -->
     </div>
 </template>
 
 <script>
+import Vue from 'vue'
+import { Button } from 'vant'
 import ModalBox from './modalBox.vue'
+
+Vue.use(Button)
 export default {
     components: {
         ModalBox
