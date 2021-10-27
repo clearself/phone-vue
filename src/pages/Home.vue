@@ -1,6 +1,6 @@
 <template>
     <div class="main home">
-        <div class="box">
+        <div class="box border-bottom">
             车生活是上海市
         </div>
 
@@ -14,7 +14,7 @@
         >
             <van-cell v-for="item in list" :key="item" :title="item" />
         </van-list>
-        <van-overlay class-name="is-pc" :show="show" @click="show = false">
+        <van-overlay :class-name="$isMobile()?'':'is-pc'" :show="show" @click="show = false">
             <div class="wrapper" @click.stop>
                 <div class="block" />
             </div>
@@ -71,8 +71,9 @@ export default {
 .box{
     width:100%;
     height:75px;
-    background-color: red;
+    // background-color: red;
     font-size:16px;
+
 }
 .wrapper {
     display: flex;

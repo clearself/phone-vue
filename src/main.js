@@ -10,7 +10,9 @@ import '@vant/touch-emulator'
 // import Vant from 'vant'
 // rem h5 适配
 
+import './assets/css/border.scss'
 import './assets/css/base.css'
+
 // import 'vant/lib/index.css'
 // import './icon/iconfont.css'
 import store from './store/index.js'
