@@ -6,10 +6,6 @@ module.exports = {
     globals: {
         jquery: true,
         $: true,
-        echarts: true,
-        THREE: true,
-        SockJS: true,
-        Stomp: true
     },
     extends: [
         'plugin:vue/essential',

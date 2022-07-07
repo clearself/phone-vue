@@ -1,0 +1,466 @@
+@charset "utf-8";
+* {
+    box-sizing: border-box;
+     -webkit-tap-highlight-color: rgba(0,0,0,0);
+     margin: 0;
+     padding: 0;
+}
+ /* 禁用iPhone中字号调整 */ 
+html {
+    -webkit-text-size-adjust: 100%;
+/* 解决IOS默认滑动很卡的情况  */ 
+    -webkit-overflow-scrolling : touch;      
+    /* max-width:750PX; */
+    width:100%;
+    height: 100%;
+}
+ 
+/* 禁止缩放表单 */
+input[type="submit"], input[type="reset"], input[type="button"], input {
+    resize: none;
+    border: none;
+}
+/* 加载不出来的图片不要显示灰色边框 */
+img:not([src]),img[src=""] {opacity: 0;}
+/* 移动端点击a链接出现蓝色背景问题解决 */
+a:link,a:active,a:visited,a:hover {
+    background: none;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* 设置HTML5元素为块 */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+body {
+    width:100%;
+    height: 100%;
+    overflow-x: hidden;
+    position: relative;
+    font: 12px/1.5 'Microsoft YaHei','宋体', Tahoma, Arial, sans-serif;
+    color: #555;
+    background-color: #F7F7F7;
+}
+ul,ol,li {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+    color: #969696;
+    font-family: 'Microsoft YaHei', Tahoma, Arial, sans-serif;
+}
+a:hover {
+    text-decoration: none;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+    font-family: 'Microsoft YaHei';
+}
+img {
+    border: none;
+}
+input {
+    font-family: 'Microsoft YaHei';
+}
+.fl {
+    float: left;
+}
+.fr {
+    float: right;
+}
+.clearfix:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.clearfix {
+    zoom: 1;
+}
+/* 颜色变量 */
+
+/* 行为相关颜色 */
+$uni-color-primary: #007aff;
+$uni-color-success: #4cd964;
+$uni-color-warning: #f0ad4e;
+$uni-color-error: #dd524d;
+$uni-color-danger: #dd524d;
+/* 背景颜色相关设置 */
+.bg-primary{
+	background-color:$uni-color-primary;
+}
+.bg-danger{
+	background-color: $uni-color-danger;
+}
+.bg-warning{
+	background-color: $uni-color-warning;
+}
+.bg-success{
+	background-color: $uni-color-success;
+}
+/* 文字基本颜色 */
+$uni-text-color:#333;//基本色
+$uni-text-color-inverse:#fff;//反色
+$uni-text-color-grey:#999;//辅助灰色，如加载更多的提示信息
+$uni-text-color-placeholder: #808080;
+$uni-text-color-disable:#c0c0c0;
+
+/* 背景颜色 */
+$uni-bg-color:#ffffff;
+$uni-bg-color-grey:#f8f8f8;
+$uni-bg-color-hover:#f1f1f1;//点击状态颜色
+$uni-bg-color-mask:rgba(0, 0, 0, 0.4);//遮罩颜色
+
+/* 边框颜色 */
+$uni-border-color:#c8c7cc;
+
+/* 尺寸变量 */
+
+/* 文字尺寸 */
+$uni-font-size-sm:12px;
+$uni-font-size-base:14px;
+$uni-font-size-lg:16px;
+
+/* 字体大小相关设置 */
+.font{
+	font-size:$uni-font-size-base;
+}
+.font-sm{
+	font-size:$uni-font-size-sm;
+}
+.font-lg{
+	font-size:$uni-font-size-lg;
+}
+/* 图片尺寸 */
+$uni-img-size-sm:20px;
+$uni-img-size-base:26px;
+$uni-img-size-lg:40px;
+
+/* Border Radius */
+$uni-border-radius-sm: 2px;
+$uni-border-radius-base: 3px;
+$uni-border-radius-lg: 6px;
+$uni-border-radius-circle: 50%;
+
+/* 水平间距 */
+$uni-spacing-row-sm: 5px;
+$uni-spacing-row-base: 10px;
+$uni-spacing-row-lg: 15px;
+
+/* 垂直间距 */
+$uni-spacing-col-sm: 4px;
+$uni-spacing-col-base: 8px;
+$uni-spacing-col-lg: 12px;
+
+/* 透明度 */
+$uni-opacity-disabled: 0.3; // 组件禁用态的透明度
+
+/* 文章场景相关 */
+$uni-color-title: #2C405A; // 文章标题颜色
+$uni-font-size-title:20px;
+$uni-color-subtitle: #555555; // 二级标题颜色
+$uni-font-size-subtitle:26px;
+$uni-color-paragraph: #3F536E; // 文章段落颜色
+$uni-font-size-paragraph:15px;
+.ub {
+	display: flex;
+}
+.ub-wrap{
+	flex-wrap: wrap;
+}
+.ub-relative {
+	position: relative;
+}
+.ub-absolute {
+	position: absolute;
+}
+.ub-con {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+.ub-as {
+	align-items:flex-start;
+}
+.ub-ac {
+	align-items:center;
+}
+
+.ub-ae {
+	align-items:flex-end;
+}
+.ub-ps {
+	justify-content:flex-start;
+}
+.ub-pc {
+	justify-content:center;
+}
+
+.ub-pe {
+	justify-content:flex-end;
+}
+
+.ub-pj {
+	justify-content:space-between;
+}
+
+.ub-ver {
+	flex-direction:column;
+}
+
+.ub-f1 {
+	flex: 1;
+}
+
+.ub-f2 {
+	flex: 2;
+}
+
+.ub-f3 {
+	flex: 3;
+}
+
+.ub-f4 {
+	flex: 4;
+}
+.text-left {
+	text-align: left;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.ut-s {
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	outline: 0;
+}
+
+.ut-m {
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: normal;
+	outline: 0;
+}
+/* 常用 margin 设置 */
+.mt-1{
+	margin-top:10rpx;
+}
+.mt-2{
+	margin-top:20rpx;
+}
+.mt-3{
+	margin-top:30rpx;
+}
+.mt-4{
+	margin-top:40rpx;
+}
+.mt-5{
+	margin-top:50rpx;
+}
+.ml-1{
+	margin-left:10rpx;
+}
+.ml-2{
+	margin-left:20rpx;
+}
+.ml-3{
+	margin-left:30rpx;
+}
+.ml-4{
+	margin-left:40rpx;
+}
+.ml-5{
+	margin-left:50rpx;
+}
+.mr-1{
+	margin-right:10rpx;
+}
+.mr-2{
+	margin-right:20rpx;
+}
+.mr-3{
+	margin-right:30rpx;
+}
+.mr-4{
+	margin-right:40rpx;
+}
+.mr-5{
+	margin-right:50rpx;
+}
+.mb-1{
+	margin-bottom:10rpx;
+}
+.mb-2{
+	margin-bottom:20rpx;
+}
+.mb-3{
+	margin-bottom:30rpx;
+}
+.mb-4{
+	margin-bottom:40rpx;
+}
+.mb-5{
+	margin-bottom:50rpx;
+}
+.mx-1{
+	margin:0 10rpx;
+}
+.mx-2{
+	margin:0 20rpx;
+}
+.mx-3{
+	margin:0 30rpx;
+}
+.mx-4{
+	margin:0 40rpx;
+}
+.mx-5{
+	margin:0 50rpx;
+}
+.my-1{
+	margin:10rpx 0;
+}
+.my-2{
+	margin:20rpx 0;
+}
+.my-3{
+	margin:30rpx 0;
+}
+.my-4{
+	margin:40rpx 0;
+}
+.my-5{
+	margin:50rpx 0;
+}
+/* 常用 padding 设置 */
+.p{
+	padding:5rpx;
+}
+.pt-1{
+	padding-top:10rpx;
+}
+.pt-2{
+	padding-top:20rpx;
+}
+.pt-3{
+	padding-top:30rpx;
+}
+.mt-4{
+	padding-top:40rpx;
+}
+.mt-5{
+	padding-top:50rpx;
+}
+.pl-1{
+	padding-left:10rpx;
+}
+.pl-2{
+	padding-left:20rpx;
+}
+.pl-3{
+	padding-left:30rpx;
+}
+.pl-4{
+	padding-left:40rpx;
+}
+.pl-5{
+	padding-left:50rpx;
+}
+.pr-1{
+	padding-right:10rpx;
+}
+.pr-2{
+	padding-right:20rpx;
+}
+.pr-3{
+	padding-right:30rpx;
+}
+.pr-4{
+	padding-right:40rpx;
+}
+.pr-5{
+	padding-right:50rpx;
+}
+.pb-1{
+	padding-bottom:10rpx;
+}
+.pb-2{
+	padding-bottom:20rpx;
+}
+.pb-3{
+	padding-bottom:30rpx;
+}
+.pb-4{
+	padding-bottom:40rpx;
+}
+.pb-5{
+	padding-bottom:50rpx;
+}
+.px-1{
+	padding:0 10rpx;
+}
+.px-2{
+	padding:0 20rpx;
+}
+.px-3{
+	padding:0 30rpx;
+}
+.px-4{
+	padding:0 40rpx;
+}
+.px-5{
+	padding:0 50rpx;
+}
+.py-1{
+	padding:10rpx 0;
+}
+.py-2{
+	padding:20rpx 0;
+}
+.py-3{
+	padding:30rpx 0;
+}
+.py-4{
+	padding:40rpx 0;
+}
+.py-5{
+	padding:50rpx 0;
+}
+.w100 {
+	width: 100%;
+}
+.h100 {
+	height: 100%;
+}
+.rounded-circle{
+	border-radius:10rpx;
+}
+
+
+/* 字体颜色相关设置 */
+.text-white{
+	color:#FFFFFF;
+}
+.text-black{
+	color:#333333;
+}
+/* IE盒模型 */
+.border-box{
+	box-sizing: border-box;
+}
+.van-overlay.is-pc{
+    top: 50%;
+   left: 50%;
+   z-index: 1;
+   width: 100%;
+   max-width:750PX;
+   transform: translate(-50%, -50%);
+}

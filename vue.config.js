@@ -48,14 +48,6 @@ module.exports = {
         ? './'
         : '/',
     transpileDependencies: [
-        /[/\\]node_modules[/\\](.+?)?element-ui(.*)[/\\]src/,
-        /[/\\]node_modules[/\\](.+?)?element-ui(.*)[/\\]package/,
-        /[/\\]node_modules[/\\](.+?)?f-render(.*)/,
-        /[/\\]node_modules[/\\](.+?)?quill-image-drop-module(.*)/,
-        /[/\\]node_modules[/\\](.+?)?vue-ele-form(.*)/,
-        /[/\\]node_modules[/\\](.+?)?vue-ele-form-bmap(.*)/,
-        /[/\\]node_modules[/\\](.+?)?vue-baidu-map(.*)/,
-        /[/\\]node_modules[/\\](.+?)?vue-ele-upload-image(.*)/,
         /[/\\]node_modules[/\\](.+?)?vuex(.*)/,
         /[/\\]node_modules[/\\](.+?)?vue-router(.*)/,
         /[/\\]node_modules[/\\](.+?)?vant(.*)/,
@@ -122,19 +114,13 @@ module.exports = {
                 ]
             }
         ])
-        // webpack 会默认给commonChunk打进chunk-vendors，所以需要对webpack的配置进行delete
-        // config.optimization.delete('splitChunks')
-
-        // config
-        //     .plugin('webpack-bundle-analyzer')
-        //     .use(require('webpack-bundle-analyzer').BundleAnalyzerPlugin)
     },
     assetsDir: 'static',
     runtimeCompiler: true,
     productionSourceMap: false,
     outputDir: 'dist',
     devServer: {
-        host: '10.18.3.88',
+        host: '10.18.1.88',
         port: 3001,
         https: false,
         hotOnly: false,
