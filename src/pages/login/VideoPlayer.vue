@@ -31,6 +31,7 @@ export default {
             if (!newVal) {
                 console.log(this.configInfo.id + '要暂停')
                 this.Player.pause()
+                this.Player.poster = this.configInfo.poster
             }
         }
     },

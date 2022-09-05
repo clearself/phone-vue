@@ -69,5 +69,31 @@ export default {
                 return obj;
             }
         };
+        Vue.prototype.$userAgen = function () {
+            var os = (function () {
+                var ua = navigator.userAgent
+                var isWindowsPhone = /(?:Windows Phone)/.test(ua)
+                var isSymbian = /(?:SymbianOS)/.test(ua) || isWindowsPhone
+                var isAndroid = /(?:Android)/.test(ua)
+                var isFireFox = /(?:Firefox)/.test(ua)
+                var isTablet = /(?:iPad|PlayBook)/.test(ua) || (isAndroid && !/(?:Mobile)/.test(ua)) || (isFireFox &&
+                    /(?:Tablet)/.test(ua))
+                var isPhone = /(?:iPhone)/.test(ua) && !isTablet
+                var isPc = !isPhone && !isAndroid && !isSymbian
+                return {
+                    isTablet: isTablet,
+                    isPhone: isPhone,
+                    isAndroid: isAndroid,
+                    isPc: isPc
+                }
+            }())
+            if (os.isAndroid || os.isPhone) {
+                return '手机'
+            } else if (os.isTablet) {
+                return '平板'
+            } else if (os.isPc) {
+                return '电脑'
+            }
+        }
     },
 }

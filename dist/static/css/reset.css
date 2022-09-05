@@ -1,0 +1,14 @@
+.right-content .btn-gradient{
+	border: 0;
+	background: #449aff; /* Old browsers */
+	background: -moz-linear-gradient(left, #449aff 0%, #37d5fc 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(left, #449aff 0%,#37d5fc 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to right, #449aff 0%,#37d5fc 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+.right-content .btn-gradient:hover,.right-content .btn-gradient:hover{
+	background: #449aff; /* Old browsers */
+	background: -moz-linear-gradient(left, #37d5fc 0%, #449aff 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(left, #37d5fc 0%,#449aff 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to right, #37d5fc 0%,#449aff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+

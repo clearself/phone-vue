@@ -68,7 +68,7 @@ export default {
         }
     },
     mounted() {
-
+        console.log(this.$userAgen())
     },
     methods: {
         paly(id) {
