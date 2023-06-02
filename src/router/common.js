@@ -6,7 +6,7 @@ export default [
     {
         path: '/',
         name: 'Home',
-        component: Login
+        component: Home
     },
     {
         path: '/about',

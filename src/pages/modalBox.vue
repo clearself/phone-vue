@@ -50,16 +50,16 @@ export default {
 }
 </script>
 
-<style type="text/scss" lang="scss" scoped>
-    .modalBox{
-        width: 100vw;
-        height: 100vh;
-        overflow: hidden;
-        position: fixed;
-        top: 0;
-        left: 0;
-        background: rgba(0,0,0,0.4);
-        z-index: 999;
-    }
-    </style>
+<style lang="scss" scoped>
+.modalBox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    background: rgb(0 0 0 / 40%);
+}
+</style>
 

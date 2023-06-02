@@ -1,66 +1,42 @@
 const path = require('path')
-const CompressionWebpackPlugin = require('compression-webpack-plugin')
 const SimpleProgressWebpackPlugin = require('simple-progress-webpack-plugin')
-const HappyPack = require('happypack')
+const CompressionWebpackPlugin = require('compression-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
+const isProduction = process.env.NODE_ENV === 'production'
+const productionGzipExtensions = /\.(js|css|json|txt|html|ico|svg)(\?.*)?$/i
+const HappyPack = require('happypack')
 const { HashedModuleIdsPlugin } = require('webpack')
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
-const productionGzipExtensions = ['js', 'css', 'json', 'txt', 'html', 'ico', 'svg']
-const isProduction = process.env.NODE_ENV === 'production'
 function resolve(dir) {
     return path.join(__dirname, dir)
 }
-let rules = [
-    {
-        test: /\.js$/,
-        include: path.resolve('src'),
-        use: [
-            {
-                loader: 'thread-loader',
-                options: {
-                    // 产生的 worker 的数量，默认是 cpu 的核心数
-                    workers: 3,
-                    // 一个 worker 进程中并行执行工作的数量
-                    // 默认为 20
-                    workerParallelJobs: 50
-                }
-            }
-        ]
-
-    }
-
-]
 
 let pluginsArr = [
     new SimpleProgressWebpackPlugin(),
     new HardSourceWebpackPlugin(),
     new CompressionWebpackPlugin({
-        filename: '[path][base].gz', // 提示compression-webpack-plugin@3.0.0的话asset改为filename
+        filename: '[path].gz[query]',
         algorithm: 'gzip',
-        test: new RegExp('\\.(' + productionGzipExtensions.join('|') + ')$'),
+        test: productionGzipExtensions,
         threshold: 10240,
         minRatio: 0.8
-    }),
-    new HashedModuleIdsPlugin()
+    })
 ]
+
 module.exports = {
     publicPath: process.env.NODE_ENV === 'production'
         ? './'
         : '/',
-    transpileDependencies: [
-        /[/\\]node_modules[/\\](.+?)?vuex(.*)/,
-        /[/\\]node_modules[/\\](.+?)?vue-router(.*)/,
-        /[/\\]node_modules[/\\](.+?)?vant(.*)/,
-        /[/\\]node_modules[/\\](.+?)?vue-clipboard2(.*)/
-    ],
+    // transpileDependencies: [],
     configureWebpack: config => {
         let plugins = []
         let module = {}
         if (isProduction) {
-            module.rules = [].concat(rules)
             plugins = [].concat(pluginsArr)
+
             // 开启分离js
             config.optimization = {
+                runtimeChunk: 'single',
                 minimize: true,
                 minimizer: [
                     new TerserPlugin({
@@ -70,7 +46,7 @@ module.exports = {
                             parse: {},
                             compress: {
                                 drop_console: true,
-                                drop_debugger: false,
+                                drop_debugger: true,
                                 pure_funcs: ['console.log'] // 移除console
                             }
                         },
@@ -97,8 +73,14 @@ module.exports = {
 
         return isProduction ? { plugins, module } : { plugins }
     },
+
     css: {
-        sourceMap: process.env.NODE_ENV !== 'production'
+        sourceMap: process.env.NODE_ENV !== 'production',
+        loaderOptions: {
+            sass: {
+                additionalData: `@import "@/assets/css/base.scss";`
+            }
+        }
     },
     chainWebpack: config => {
         config.resolve.alias
@@ -114,19 +96,21 @@ module.exports = {
                 ]
             }
         ])
+        config.optimization.delete('splitChunks')
     },
+
     assetsDir: 'static',
     runtimeCompiler: true,
     productionSourceMap: false,
     outputDir: 'dist',
     devServer: {
-        host: '10.18.1.88',
-        port: 3001,
+        host: 'localhost',
+        port: 3000,
         https: false,
         hotOnly: false,
         proxy: { // 设置代理
             '/api': {
-                target: 'http://10.10.109.162:17999/', // 需要代理的地址
+                target: 'http://10.18.1.104:17999', // 新环境地址开发
                 changeOrigin: true,
                 ws: true,
                 secure: false,
@@ -146,4 +130,5 @@ module.exports = {
             }
         }
     }
+
 }

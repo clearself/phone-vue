@@ -66,26 +66,23 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-@import './style.scss';
-
-.box{
-    width:100%;
-    height:75px;
+@import './style';
+.box {
+    width: 100%;
+    height: 75px;
     // background-color: red;
-    font-size:16px;
-
+    font-size: 16px;
 }
 .wrapper {
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     height: 100%;
 }
-
 .block {
+    overflow-y: auto;
     width: 120px;
     height: 300px;
-    overflow-y: auto;
-    background-color: #fff;
+    background-color: #ffffff;
 }
 </style>

@@ -1,9 +1,9 @@
 <template>
     <div class="modalTest">
         <!-- 按钮组 -->
-        <!-- <div class="btn">
+        <div class="btn">
             <van-button type="danger" size="small" text="弹窗2" @click="modalSign2 = true" />
-        </div> -->
+        </div>
 
         <!-- 背景数据 -->
         <!-- <div class="listBG">
@@ -11,7 +11,7 @@
                 <li v-for="(item,index) in 50" :key="index">这是第{{item}}条背景数据</li>
             </ul>
         </div> -->
-        <!-- <ModalBox :visible.sync="modalSign2">
+        <ModalBox :visible.sync="modalSign2">
             <div slot="modal" class="modal">
                 <van-button type="danger" size="small" text="关闭" @click="modalSign2 = false" />
                 <ul>
@@ -41,8 +41,8 @@
                     <li>egfbbfbbfbfd</li>
                 </ul>
             </div>
-        </ModalBox> -->
-        <div class="ub ub-ver ub-ae w100" style="height:500px;border:1px solid red;">
+        </ModalBox>
+        <div class="ub ub-ver ub-ae w100" style="height: 500px;border: 1px solid red;">
             <div class="box red"></div>
             <div class="box green"></div>
         </div>
@@ -52,12 +52,12 @@
 <script>
 import Vue from 'vue'
 import { Button } from 'vant'
-// import ModalBox from './modalBox.vue'
+import ModalBox from './modalBox.vue'
 
 Vue.use(Button)
 export default {
     components: {
-    // ModalBox
+        ModalBox
     },
     data() {
         return {
@@ -73,46 +73,46 @@ export default {
 </script>
 
 <style type="text/scss" lang="scss" scoped>
-    .modalTest{
-        width:100%;
-        min-height: 100vh;
-        overflow: scroll;
+    .modalTest {
         position: relative;
-        .btn{
-            padding: 10px;
+        overflow: scroll;
+        width: 100%;
+        min-height: 100vh;
+        .btn {
             position: absolute;
             top: 0;
             left: 0;
             z-index: 10;
-            &>button{
+            padding: 10px;
+            &>button {
                 margin: 10px 0;
             }
         }
-        .listBG{
+        .listBG {
             text-align: center;
             line-height: 50px;
         }
     }
-    .modal{
+    .modal {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        overflow: scroll;
+        padding: 20px;
         width: 50%;
         height: 50%;
-        overflow: scroll;
-        background: #fff;
         border-radius: 10px;
-        position: absolute;
-        left: 50%;
-        top: 50%;
+        background: #ffffff;
         transform: translate(-50%, -50%);
-        padding: 20px;
     }
-    .box{
-        width:100px;
-        height:100px;
+    .box {
+        width: 100px;
+        height: 100px;
     }
-    .red{
+    .red {
         background-color: red;
     }
-    .green{
+    .green {
         background-color: green;
     }
 </style>

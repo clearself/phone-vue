@@ -10,12 +10,12 @@ import '@vant/touch-emulator'
 // rem h5 适配
 import VueCoreVideoPlayer from 'vue-core-video-player'
 
-import './assets/css/border.scss'
-import './assets/css/base.scss'
-import Video from 'video.js'
-import 'video.js/dist/video-js.css' // 引入Video播放器
+// import './assets/css/border.scss'
+// import './assets/css/base.scss'
+// import Video from 'video.js'
+// import 'video.js/dist/video-js.css' // 引入Video播放器
 
-// import 'vant/lib/index.css'
+import 'vant/lib/index.css'
 // import './icon/iconfont.css'
 import store from './store/index.js'
 import Debounce from './assets/js/utils.js'
@@ -31,7 +31,7 @@ import VueClipBoard from 'vue-clipboard2'
 import directives from './assets/js/directives.js'
 // 路由切换加载进度条
 import LoadingBar from './components/loading-bar/index.js'
-Vue.prototype.$video = Video
+// Vue.prototype.$video = Video
 // Vue.use(Vant)
 Vue.use(VueCookies)
 Vue.component('Debounce', Debounce)

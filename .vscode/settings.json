@@ -1,0 +1,88 @@
+{
+    "eslint.options": {
+        "configFile": ".eslintrc.js" //指定项目根目录中的eslint配置文件
+    },
+    "eslint.nodeEnv": "",
+    "eslint.codeAction.showDocumentation": {
+        "enable": true
+    },
+    "eslint.format.enable": true,
+    "eslint.lintTask.enable": true,
+    "eslint.enable": true, // eslint 格式化的配置
+    "eslint.run": "onType",
+    // #值设置为true时，每次保存的时候自动格式化；
+    // "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll": true,
+        "source.fixAll.stylelint": true // stylelint
+    },
+    "files.autoSaveDelay": 500,
+    "workbench.editor.enablePreview": false,
+    "files.associations": {
+        "*.vue": "vue",
+        "*.wxss": "css"
+    },
+    "git.enableSmartCommit": true,
+    "git.autofetch": true,
+    "emmet.triggerExpansionOnTab": true,
+    "emmet.showAbbreviationSuggestions": true,
+    "emmet.showExpandedAbbreviation": "always",
+    "emmet.includeLanguages": {
+        "vue-html": "html",
+        "vue": "html",
+        "wpy": "html"
+    },
+    //主题颜色
+    //"workbench.colorTheme": "Monokai",
+    "git.confirmSync": false,
+    "explorer.confirmDelete": false,
+    "window.zoomLevel": 1,
+    "editor.wordWrap": "on",
+    "editor.detectIndentation": false,
+    // 重新设定tabsize
+    "editor.tabSize": 4,
+    //失去焦点后自动保存
+    // "files.autoSave": "onFocusChange",
+    //每120行就显示一条线
+    "editor.rulers": [],
+    // 在使用搜索功能时，将这些文件夹/文件排除在外
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "**/target": true,
+        "**/logs": true
+    },
+    // 这些文件将不会显示在工作空间中
+    "files.exclude": {
+        "**/.DS_Store": true,
+        "**/.git": true,
+        "**/.hg": true,
+        "**/.svn": true,
+        "**/*.js": {
+            "when": "$(basename).ts"
+        },
+        "**/CVS": true
+    },
+   
+    "prettier.tabWidth": 4,
+    "prettier.vueIndentScriptAndStyle": true,
+    "eslint.codeActionsOnSave.rules": null,
+    //开启自动修复
+    "editor.codeActionsOnSave": {
+        "source.fixAll": true, // 开启自动修复
+        "source.fixAll.stylelint": true, // 开启stylelint自动修复
+    },
+    // 配置stylelint检查的文件类型范围
+    "stylelint.validate": [
+        "css",
+        "less",
+        "postcss",
+        "scss",
+        "sass",
+        "vue"
+    ],
+    "stylelint.enable": true,
+    "css.validate": false,
+    "less.validate": false,
+    "scss.validate": false
+}
