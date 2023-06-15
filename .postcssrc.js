@@ -21,7 +21,7 @@ module.exports = ({ file }) => {
                 mediaQuery: true,             //是否开启媒体查询
                 replace: true,     //是否直接更换属性值，而不添加备用属性     
                 exclude: [],          //忽略某些文件夹下的文件或特定文件
-                landscape: true,  
+                landscape: false,  
                 landscapeUnit: 'vw',  //横屏时使用的单位
                 landscapeWidth: 1366   //横屏时使用的视口宽度
         }

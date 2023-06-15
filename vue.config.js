@@ -3,7 +3,7 @@ const SimpleProgressWebpackPlugin = require('simple-progress-webpack-plugin')
 const CompressionWebpackPlugin = require('compression-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 const isProduction = process.env.NODE_ENV === 'production'
-const productionGzipExtensions = /\.(js|css|json|txt|html|ico|svg)(\?.*)?$/i
+const productionGzipExtensions = /\.(js|css|json|txt|html|ico|svg|awebp)(\?.*)?$/i
 const HappyPack = require('happypack')
 const { HashedModuleIdsPlugin } = require('webpack')
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
@@ -27,7 +27,12 @@ module.exports = {
     publicPath: process.env.NODE_ENV === 'production'
         ? './'
         : '/',
-    // transpileDependencies: [],
+    transpileDependencies: [
+        /[/\\]node_modules[/\\](.+?)?@photo-sphere-viewer[/\\]core(.*)/,
+        /[/\\]node_modules[/\\](.+?)?@photo-sphere-viewer[/\\]autorotate-plugin(.*)/,
+        /[/\\]node_modules[/\\](.+?)?@photo-sphere-viewer[/\\]gallery-plugin(.*)/,
+        /[/\\]node_modules[/\\](.+?)?@photo-sphere-viewer[/\\]markers-plugin(.*)/
+    ],
     configureWebpack: config => {
         let plugins = []
         let module = {}
@@ -104,7 +109,7 @@ module.exports = {
     productionSourceMap: false,
     outputDir: 'dist',
     devServer: {
-        host: 'localhost',
+        // host: 'localhost',
         port: 3000,
         https: false,
         hotOnly: false,
